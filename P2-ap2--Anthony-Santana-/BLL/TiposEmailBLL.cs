@@ -57,7 +57,9 @@ public static bool Eliminar(TiposEmail existente)
 
 }
 
-public static TiposEmail Buscar(Expression<Func<TiposEmail, bool>> retencion)
+
+
+        public static TiposEmail Buscar(Expression<Func<TiposEmail, bool>> retencion)
 {
             TiposEmail Result = null;
     using (var repoitorio = new Repositorio<TiposEmail>())
@@ -68,7 +70,10 @@ public static TiposEmail Buscar(Expression<Func<TiposEmail, bool>> retencion)
     return Result;
   }
 
- public static List<TiposEmail> Lista(Expression<Func<TiposEmail, bool>> busqueda)
+
+  
+
+        public static List<TiposEmail> Lista(Expression<Func<TiposEmail, bool>> busqueda)
  {
     List<TiposEmail> Result = null;
     using (var db = new Repositorio<TiposEmail>())

@@ -13,6 +13,7 @@ namespace P2_ap2__Anthony_Santana_.Registros
 {
     public partial class RegistroTipos : Form
     {
+        Entidades.TiposEmail tipo;
         public RegistroTipos()
         {
             InitializeComponent();
@@ -34,6 +35,7 @@ namespace P2_ap2__Anthony_Santana_.Registros
             descripcionTextBox.Clear();
             tipoIdMaskedTextBox.Clear();
             descripcionTextBox.Focus();
+            tipo = new Entidades.TiposEmail();
             errorProvider1.Clear();
         }
 
@@ -113,6 +115,24 @@ namespace P2_ap2__Anthony_Santana_.Registros
             else
             {
                 MessageBox.Show("No Existe");
+            }
+        }
+
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+
+            int id = int.Parse(tipoIdMaskedTextBox.Text);
+            var user = BLL.TiposEmailBLL.Buscar(p => p.TipoId == id);
+
+            if (BLL.TiposEmailBLL.Eliminar(user))
+            {
+
+                MessageBox.Show("El Tipo se ha Eliminado con exito.");
+                Limpiar();
+            }
+            else
+            {
+                MessageBox.Show("No se pudo eliminar el Tipo.");
             }
         }
     }

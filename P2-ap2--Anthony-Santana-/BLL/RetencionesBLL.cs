@@ -59,6 +59,7 @@ namespace BLL
             return Result;
         }
 
+
         public static List<Retenciones> Lista(Expression<Func<Retenciones, bool>> busqueda)
         {
             List<Retenciones> Result = null;

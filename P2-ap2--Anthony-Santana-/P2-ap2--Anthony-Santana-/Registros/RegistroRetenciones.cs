@@ -11,6 +11,7 @@ namespace P2_ap2__Anthony_Santana_.Registros
 {
     public partial class RegistroRetenciones : Form
     {
+        Entidades.Retenciones retenciones ;
         public RegistroRetenciones()
         {
             InitializeComponent();
@@ -39,8 +40,9 @@ namespace P2_ap2__Anthony_Santana_.Registros
             descripcionTextBox.Clear();
             retencionIdMaskedTextBox.Clear();
             valorTextBox.Clear();
-
+            errorProvider1.Clear();
             descripcionTextBox.Focus();
+            retenciones = new Entidades.Retenciones();
         }
 
         private void RegistroRetenciones_Load(object sender, EventArgs e)
@@ -50,7 +52,7 @@ namespace P2_ap2__Anthony_Santana_.Registros
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
 
-            var guardar = new Entidades.Retenciones();
+            var retenciones = new Entidades.Retenciones();
             int id = 0;
 
             try
@@ -62,18 +64,18 @@ namespace P2_ap2__Anthony_Santana_.Registros
                 else
                 {
 
-                    guardar.Descripcion = descripcionTextBox.Text;
+                    retenciones.Descripcion = descripcionTextBox.Text;
 
-                    guardar.RetencionId = Utilidades.TOIN(retencionIdMaskedTextBox.Text);
+                    retenciones.RetencionId = Utilidades.TOIN(retencionIdMaskedTextBox.Text);
 
-                    if (id != guardar.RetencionId)
+                    if (id != retenciones.RetencionId)
                     {
-                        BLL.RetencionesBLL.Mofidicar(guardar);
+                        BLL.RetencionesBLL.Mofidicar(retenciones);
                         MessageBox.Show("Modificada");
                     }
                     else
                     {
-                        BLL.RetencionesBLL.Guardar(guardar);
+                        BLL.RetencionesBLL.Guardar(retenciones);
                         MessageBox.Show("Agregado con exito!");
                     }
 
@@ -81,7 +83,7 @@ namespace P2_ap2__Anthony_Santana_.Registros
 
 
                 }
-               // Limpiar();
+                Limpiar();
             }
             catch (Exception)
             {
@@ -93,6 +95,46 @@ namespace P2_ap2__Anthony_Santana_.Registros
         private void buttonNuevo_Click(object sender, EventArgs e)
         {
             Limpiar();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(retencionIdMaskedTextBox.Text);
+            Entidades.Retenciones retenciones;
+            retenciones = BLL.RetencionesBLL.Buscar(p => p.RetencionId == id);
+            if (retenciones != null)
+            {
+                retencionIdMaskedTextBox.Text = Convert.ToString(retenciones.RetencionId);
+                descripcionTextBox.Text = retenciones.Descripcion;
+                valorTextBox.Text = Convert.ToString(retenciones.Valor);
+                MessageBox.Show("Resultados");
+
+            }
+            else
+            {
+                MessageBox.Show("No Existe");
+            }
+        }
+
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(retencionIdMaskedTextBox.Text);
+            // tipo = BLL.TiposEmailBLL.Buscar(id);
+
+
+            var user = BLL.RetencionesBLL.Buscar(p => p.RetencionId == id);
+
+            if (BLL.RetencionesBLL.Eliminar(user))
+            {
+
+
+                MessageBox.Show("Eliminado con exito.");
+                Limpiar();
+            }
+            else
+            {
+                MessageBox.Show("No se pudo eliminar .");
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using P2_ap2__Anthony_Santana_.Consultas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,6 +27,13 @@ namespace P2_ap2__Anthony_Santana_
         {
             Registros.RegistroRetenciones db = new Registros.RegistroRetenciones();
             db.Show();
+        }
+
+        private void retencionesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ConsultaRetenciones db = new ConsultaRetenciones();
+                db.Show();
+
         }
     }
 }

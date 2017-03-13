@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroTipos));
             System.Windows.Forms.Label tipoIdLabel;
             System.Windows.Forms.Label descripcionLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroTipos));
             this.button4 = new System.Windows.Forms.Button();
             this.buttonEliminar = new System.Windows.Forms.Button();
             this.buttonGuardar = new System.Windows.Forms.Button();
@@ -43,6 +43,24 @@
             descripcionLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // tipoIdLabel
+            // 
+            tipoIdLabel.AutoSize = true;
+            tipoIdLabel.Location = new System.Drawing.Point(38, 25);
+            tipoIdLabel.Name = "tipoIdLabel";
+            tipoIdLabel.Size = new System.Drawing.Size(43, 13);
+            tipoIdLabel.TabIndex = 61;
+            tipoIdLabel.Text = "Tipo Id:";
+            // 
+            // descripcionLabel
+            // 
+            descripcionLabel.AutoSize = true;
+            descripcionLabel.Location = new System.Drawing.Point(38, 51);
+            descripcionLabel.Name = "descripcionLabel";
+            descripcionLabel.Size = new System.Drawing.Size(66, 13);
+            descripcionLabel.TabIndex = 63;
+            descripcionLabel.Text = "Descripcion:";
             // 
             // button4
             // 
@@ -74,6 +92,7 @@
             this.buttonEliminar.Text = "Eliminar";
             this.buttonEliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonEliminar.UseVisualStyleBackColor = true;
+            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
             // 
             // buttonGuardar
             // 
@@ -107,15 +126,6 @@
             this.buttonNuevo.UseVisualStyleBackColor = true;
             this.buttonNuevo.Click += new System.EventHandler(this.buttonNuevo_Click);
             // 
-            // tipoIdLabel
-            // 
-            tipoIdLabel.AutoSize = true;
-            tipoIdLabel.Location = new System.Drawing.Point(38, 25);
-            tipoIdLabel.Name = "tipoIdLabel";
-            tipoIdLabel.Size = new System.Drawing.Size(43, 13);
-            tipoIdLabel.TabIndex = 61;
-            tipoIdLabel.Text = "Tipo Id:";
-            // 
             // tipoIdMaskedTextBox
             // 
             this.tipoIdMaskedTextBox.Location = new System.Drawing.Point(110, 22);
@@ -124,15 +134,6 @@
             this.tipoIdMaskedTextBox.Size = new System.Drawing.Size(87, 20);
             this.tipoIdMaskedTextBox.TabIndex = 62;
             this.tipoIdMaskedTextBox.ValidatingType = typeof(int);
-            // 
-            // descripcionLabel
-            // 
-            descripcionLabel.AutoSize = true;
-            descripcionLabel.Location = new System.Drawing.Point(38, 51);
-            descripcionLabel.Name = "descripcionLabel";
-            descripcionLabel.Size = new System.Drawing.Size(66, 13);
-            descripcionLabel.TabIndex = 63;
-            descripcionLabel.Text = "Descripcion:";
             // 
             // descripcionTextBox
             // 

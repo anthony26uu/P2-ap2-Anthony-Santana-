@@ -33,14 +33,14 @@
             System.Windows.Forms.Label descripcionLabel;
             System.Windows.Forms.Label valorLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroRetenciones));
-            this.button4 = new System.Windows.Forms.Button();
+            this.buttonbuscar = new System.Windows.Forms.Button();
             this.buttonEliminar = new System.Windows.Forms.Button();
             this.buttonGuardar = new System.Windows.Forms.Button();
             this.buttonNuevo = new System.Windows.Forms.Button();
             this.retencionIdMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.descripcionTextBox = new System.Windows.Forms.TextBox();
-            this.valorTextBox = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.valorTextBox = new System.Windows.Forms.MaskedTextBox();
             retencionIdLabel = new System.Windows.Forms.Label();
             descripcionLabel = new System.Windows.Forms.Label();
             valorLabel = new System.Windows.Forms.Label();
@@ -68,25 +68,26 @@
             // valorLabel
             // 
             valorLabel.AutoSize = true;
-            valorLabel.Location = new System.Drawing.Point(83, 168);
+            valorLabel.Location = new System.Drawing.Point(83, 209);
             valorLabel.Name = "valorLabel";
             valorLabel.Size = new System.Drawing.Size(34, 13);
             valorLabel.TabIndex = 61;
             valorLabel.Text = "Valor:";
             // 
-            // button4
+            // buttonbuscar
             // 
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button4.Location = new System.Drawing.Point(214, 54);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(61, 29);
-            this.button4.TabIndex = 56;
-            this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonbuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonbuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonbuscar.Image = ((System.Drawing.Image)(resources.GetObject("buttonbuscar.Image")));
+            this.buttonbuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.buttonbuscar.Location = new System.Drawing.Point(250, 105);
+            this.buttonbuscar.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonbuscar.Name = "buttonbuscar";
+            this.buttonbuscar.Size = new System.Drawing.Size(43, 29);
+            this.buttonbuscar.TabIndex = 56;
+            this.buttonbuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.buttonbuscar.UseVisualStyleBackColor = true;
+            this.buttonbuscar.Click += new System.EventHandler(this.button4_Click);
             // 
             // buttonEliminar
             // 
@@ -103,6 +104,7 @@
             this.buttonEliminar.Text = "Eliminar";
             this.buttonEliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonEliminar.UseVisualStyleBackColor = true;
+            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
             // 
             // buttonGuardar
             // 
@@ -140,39 +142,42 @@
             // 
             this.retencionIdMaskedTextBox.Location = new System.Drawing.Point(160, 113);
             this.retencionIdMaskedTextBox.Name = "retencionIdMaskedTextBox";
-            this.retencionIdMaskedTextBox.Size = new System.Drawing.Size(100, 20);
+            this.retencionIdMaskedTextBox.Size = new System.Drawing.Size(85, 20);
             this.retencionIdMaskedTextBox.TabIndex = 58;
             // 
             // descripcionTextBox
             // 
             this.descripcionTextBox.Location = new System.Drawing.Point(160, 139);
+            this.descripcionTextBox.Multiline = true;
             this.descripcionTextBox.Name = "descripcionTextBox";
-            this.descripcionTextBox.Size = new System.Drawing.Size(100, 20);
+            this.descripcionTextBox.Size = new System.Drawing.Size(133, 64);
             this.descripcionTextBox.TabIndex = 60;
-            // 
-            // valorTextBox
-            // 
-            this.valorTextBox.Location = new System.Drawing.Point(160, 165);
-            this.valorTextBox.Name = "valorTextBox";
-            this.valorTextBox.Size = new System.Drawing.Size(100, 20);
-            this.valorTextBox.TabIndex = 62;
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // valorTextBox
+            // 
+            this.valorTextBox.Location = new System.Drawing.Point(160, 209);
+            this.valorTextBox.Mask = "99999";
+            this.valorTextBox.Name = "valorTextBox";
+            this.valorTextBox.Size = new System.Drawing.Size(133, 20);
+            this.valorTextBox.TabIndex = 63;
+            this.valorTextBox.ValidatingType = typeof(int);
             // 
             // RegistroRetenciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(403, 435);
+            this.Controls.Add(this.valorTextBox);
             this.Controls.Add(retencionIdLabel);
             this.Controls.Add(this.retencionIdMaskedTextBox);
             this.Controls.Add(descripcionLabel);
             this.Controls.Add(this.descripcionTextBox);
             this.Controls.Add(valorLabel);
-            this.Controls.Add(this.valorTextBox);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.buttonbuscar);
             this.Controls.Add(this.buttonEliminar);
             this.Controls.Add(this.buttonGuardar);
             this.Controls.Add(this.buttonNuevo);
@@ -187,13 +192,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonbuscar;
         private System.Windows.Forms.Button buttonEliminar;
         private System.Windows.Forms.Button buttonGuardar;
         private System.Windows.Forms.Button buttonNuevo;
         private System.Windows.Forms.MaskedTextBox retencionIdMaskedTextBox;
         private System.Windows.Forms.TextBox descripcionTextBox;
-        private System.Windows.Forms.TextBox valorTextBox;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.MaskedTextBox valorTextBox;
     }
 }
