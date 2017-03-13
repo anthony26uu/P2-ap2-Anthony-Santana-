@@ -15,5 +15,17 @@ namespace P2_ap2__Anthony_Santana_
         {
             InitializeComponent();
         }
+
+        private void tiposEmailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Registros.RegistroTipos db = new Registros.RegistroTipos();
+            db.Show();
+        }
+
+        private void retencionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Registros.RegistroRetenciones db = new Registros.RegistroRetenciones();
+            db.Show();
+        }
     }
 }

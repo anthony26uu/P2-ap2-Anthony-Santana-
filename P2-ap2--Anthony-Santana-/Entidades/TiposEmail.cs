@@ -9,14 +9,14 @@ namespace Entidades
   public  class TiposEmail
     {
         [Key]
-        public int TiposEmailid { get; set; }
+        public int TipoId { get; set; }
         public string Descripcion { get; set; }
-
 
         public TiposEmail()
         {
 
         }
+       
 
     }
 }
