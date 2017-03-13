@@ -10,7 +10,28 @@ namespace BLL
 {
  public   class RetencionesBLL
     {
-       
+
+
+
+        public static List<Entidades.Retenciones> GetListodo()
+        {
+            List<Entidades.Retenciones> lista = new List<Entidades.Retenciones>();
+            using (var db = new ParcialDb())
+            {
+                try
+                {
+                    lista = db.RetencionesDb.ToList();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                return lista;
+            }
+        }
+
+
         public static Retenciones Guardar(Retenciones nuevo)
         {
             Retenciones creado = null;
@@ -47,6 +68,26 @@ namespace BLL
             return eliminado;
 
         }
+
+        public static Entidades.Retenciones BuscarID(int id)
+        {
+            Entidades.Retenciones retencion = null;
+            using (var conexion = new ParcialDb())
+            {
+                try
+                {
+                    retencion = conexion.RetencionesDb.Find(id);
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+            return 
+                retencion;
+        }
+
 
         public static Retenciones Buscar(Expression<Func<Retenciones, bool>> retencion)
         {

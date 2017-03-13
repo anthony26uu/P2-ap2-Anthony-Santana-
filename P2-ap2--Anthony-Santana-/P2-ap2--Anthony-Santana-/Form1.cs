@@ -41,5 +41,11 @@ namespace P2_ap2__Anthony_Santana_
             ConsultaTiposEmails db = new ConsultaTiposEmails();
             db.Show();
         }
+
+        private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Registros.RegistroEmpleado db = new Registros.RegistroEmpleado();
+            db.Show();
+        }
     }
 }

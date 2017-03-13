@@ -42,7 +42,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(485, 51);
+            this.button1.Location = new System.Drawing.Point(534, 14);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 42;
@@ -53,7 +53,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(239, 56);
+            this.label4.Location = new System.Drawing.Point(239, 17);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 13);
             this.label4.TabIndex = 41;
@@ -62,7 +62,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(59, 56);
+            this.label3.Location = new System.Drawing.Point(59, 17);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 13);
             this.label3.TabIndex = 40;
@@ -70,7 +70,7 @@
             // 
             // buscaText
             // 
-            this.buscaText.Location = new System.Drawing.Point(289, 52);
+            this.buscaText.Location = new System.Drawing.Point(338, 15);
             this.buscaText.Name = "buscaText";
             this.buscaText.Size = new System.Drawing.Size(190, 20);
             this.buscaText.TabIndex = 39;
@@ -78,7 +78,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(132, 52);
+            this.comboBox1.Location = new System.Drawing.Point(132, 13);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(101, 21);
             this.comboBox1.TabIndex = 38;
@@ -86,9 +86,9 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 80);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 41);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(548, 180);
+            this.dataGridView1.Size = new System.Drawing.Size(599, 180);
             this.dataGridView1.TabIndex = 43;
             // 
             // BuscarError
@@ -99,7 +99,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(588, 297);
+            this.ClientSize = new System.Drawing.Size(644, 237);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
