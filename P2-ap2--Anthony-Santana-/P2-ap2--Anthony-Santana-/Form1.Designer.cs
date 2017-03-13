@@ -1,6 +1,6 @@
 ﻿namespace P2_ap2__Anthony_Santana_
 {
-    partial class Form1
+    partial class Principa
     {
         /// <summary>
         /// Required designer variable.
@@ -34,6 +34,7 @@
             this.retencionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.retencionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tiposEmailToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,7 +75,8 @@
             // consultaToolStripMenuItem
             // 
             this.consultaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.retencionesToolStripMenuItem1});
+            this.retencionesToolStripMenuItem1,
+            this.tiposEmailToolStripMenuItem1});
             this.consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
             this.consultaToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.consultaToolStripMenuItem.Text = "Consulta";
@@ -86,15 +88,22 @@
             this.retencionesToolStripMenuItem1.Text = "Retenciones";
             this.retencionesToolStripMenuItem1.Click += new System.EventHandler(this.retencionesToolStripMenuItem1_Click);
             // 
-            // Form1
+            // tiposEmailToolStripMenuItem1
+            // 
+            this.tiposEmailToolStripMenuItem1.Name = "tiposEmailToolStripMenuItem1";
+            this.tiposEmailToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.tiposEmailToolStripMenuItem1.Text = "Tipos Email";
+            this.tiposEmailToolStripMenuItem1.Click += new System.EventHandler(this.tiposEmailToolStripMenuItem1_Click);
+            // 
+            // Principa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Principa";
+            this.Text = "Principal";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -110,6 +119,7 @@
         private System.Windows.Forms.ToolStripMenuItem consultaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem retencionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem retencionesToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tiposEmailToolStripMenuItem1;
     }
 }
 

@@ -74,6 +74,12 @@
     <Compile Include="Consultas\ConsultaRetenciones.Designer.cs">
       <DependentUpon>ConsultaRetenciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="Consultas\ConsultaTiposEmails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaTiposEmails.Designer.cs">
+      <DependentUpon>ConsultaTiposEmails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     <Compile Include="Utilidades.cs" />
     <EmbeddedResource Include="Consultas\ConsultaRetenciones.resx">
       <DependentUpon>ConsultaRetenciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaTiposEmails.resx">
+      <DependentUpon>ConsultaTiposEmails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

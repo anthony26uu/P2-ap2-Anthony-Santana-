@@ -15,7 +15,7 @@ namespace P2_ap2__Anthony_Santana_
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Principa());
         }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace P2_ap2__Anthony_Santana_
 {
-    public partial class Form1 : Form
+    public partial class Principa : Form
     {
-        public Form1()
+        public Principa()
         {
             InitializeComponent();
         }
@@ -34,6 +34,12 @@ namespace P2_ap2__Anthony_Santana_
             ConsultaRetenciones db = new ConsultaRetenciones();
                 db.Show();
 
+        }
+
+        private void tiposEmailToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ConsultaTiposEmails db = new ConsultaTiposEmails();
+            db.Show();
         }
     }
 }
