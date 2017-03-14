@@ -99,6 +99,7 @@ namespace P2_ap2__Anthony_Santana_.Registros
 
         private void button4_Click(object sender, EventArgs e)
         {
+          
             int id = int.Parse(retencionIdMaskedTextBox.Text);
             Entidades.Retenciones retenciones;
             retenciones = BLL.RetencionesBLL.Buscar(p => p.RetencionId == id);

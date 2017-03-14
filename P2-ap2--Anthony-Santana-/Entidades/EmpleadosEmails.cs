@@ -15,15 +15,17 @@ namespace Entidades
         public int TipoId { get; set; }
         public string Email { get; set; }
 
+        public virtual Entidades.TiposEmail TipoEmail { get; set; }
+
         public EmpleadosEmails()
         {
-
+            this.TipoEmail = new TiposEmail();
         }
 
-        public EmpleadosEmails(int empleadoId, int tipoId, string email)
+        public EmpleadosEmails( int tipoId, string email)
         {
             this.Email = email;
-            this.EmpleadoId = empleadoId;
+         
             this.TipoId = tipoId;
 
         }

@@ -12,7 +12,9 @@ namespace P2_ap2__Anthony_Santana_.Registros
     public partial class RegistroEmpleado : Form
     {
         Entidades.Empleados empleadoG;
+        Entidades.EmpleadosEmails Email;
         List<Entidades.Retenciones> listado;
+        List<Entidades.TiposEmail> lista1;
 
 
         public RegistroEmpleado()
@@ -37,6 +39,33 @@ namespace P2_ap2__Anthony_Santana_.Registros
                 errorProvider1.SetError(sueldoMaskedTextBox, "CAMPO VACIO");
                 retorno = false;
             }
+
+
+            if (string.IsNullOrWhiteSpace(comboBoxRetenciones.Text))
+            {
+                errorProvider1.SetError(comboBoxRetenciones, "CAMPO VACIO");
+                retorno = false;
+            }
+
+
+            if (string.IsNullOrWhiteSpace(comboBoTipo.Text))
+            {
+                errorProvider1.SetError(comboBoTipo, "CAMPO VACIO");
+                retorno = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(textBoxEmail.Text))
+            {
+                errorProvider1.SetError(textBoxEmail, "CAMPO VACIO");
+                retorno = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(Idtipo.Text))
+            {
+                errorProvider1.SetError(Idtipo, "CAMPO VACIO");
+                retorno = false;
+            }
+
             return retorno;
         }
 
@@ -47,8 +76,14 @@ namespace P2_ap2__Anthony_Santana_.Registros
             sueldoMaskedTextBox.Clear();
             nombreTextBox.Focus();
             errorProvider1.Clear();
+            comboBoTipo.Text = null;
+            textBoxEmail.Clear();
+            Idtipo.Text = null;
             dataGridView1.DataSource = null;
             comboBoxRetenciones.Text=null;
+            dataGridEmail.DataSource = null;
+             Email= new Entidades.EmpleadosEmails();
+
             empleadoG = new Entidades.Empleados();
         }
 
@@ -58,15 +93,51 @@ namespace P2_ap2__Anthony_Santana_.Registros
             comboBoxRetenciones.DataSource = lista;
             comboBoxRetenciones.DisplayMember = "Descripcion";
             comboBoxRetenciones.ValueMember = "RetencionId";
-            //if (comboBoxRetenciones.Items.Count > 0)
-            //    comboBoxRetenciones.SelectedIndex = -1;
+
+        }
+
+   
+
+
+        private void LlenarComboEmails()
+        {
+            lista1 = BLL.TiposEmailBLL.GetListodo();
+            Idtipo.DataSource = lista1;
+            comboBoTipo.DataSource = lista1;
+
+           
+           Idtipo.DisplayMember = "TipoId";
+           Idtipo.ValueMember = "TipoId";
+
+            if (Idtipo.DisplayMember == "TipoId")
+            {
+                   
+                comboBoTipo.ValueMember = "Descripcion";
+            }
+            else
+            {
+                Idtipo.DisplayMember = "TipoId";
+            }
 
         }
 
         private void LlenarData(Entidades.Empleados n)
         {
             dataGridView1.DataSource = null;
-            dataGridView1.DataSource = n.RetencionesList;
+            dataGridView1.DataSource = n.RetencionesList.ToList();
+
+        }
+
+        private void LlenarDataEmail(Entidades.Empleados empleado)
+        {
+            dataGridEmail.DataSource = null;
+            dataGridEmail.DataSource = empleado.EmailsList.ToList();
+            
+          this.dataGridEmail.Columns["Id"].Visible = false;
+          this.dataGridEmail.Columns["EmpleadoId"].Visible = false;
+          this.dataGridEmail.Columns["TipoEmail"].Visible = false;
+       //  this.dataGridEmail.Columns["LisRelacion"].Visible = false;
+
 
         }
 
@@ -74,6 +145,7 @@ namespace P2_ap2__Anthony_Santana_.Registros
         private void RegistroEmpleado_Load(object sender, EventArgs e)
         {
             LlenarCombo();
+            LlenarComboEmails();
 
         }
 
@@ -103,6 +175,8 @@ namespace P2_ap2__Anthony_Santana_.Registros
                      empleado.FechaNacimiento = Convert.ToDateTime(fechaNacimientoDateTimePicker.Text);
                     empleado.Sueldo = Convert.ToDouble(sueldoMaskedTextBox.Text);
 
+                    empleado.RetencionId = (int)comboBoxRetenciones.SelectedValue;
+
                     if (id != empleado.EmpleadoId)
                     {
                         BLL.EmpleadoBLL.Mofidicar(empleado);
@@ -131,10 +205,15 @@ namespace P2_ap2__Anthony_Santana_.Registros
 
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(empleadoIdMaskedTextBox.Text);
-            // tipo = BLL.TiposEmailBLL.Buscar(id);
-
-
+            if (string.IsNullOrWhiteSpace(empleadoIdMaskedTextBox.Text))
+            {
+                MessageBox.Show( "ID CAMPO VACIO");
+                Limpiar();
+                
+            }
+            else
+            {
+                  int id = int.Parse(empleadoIdMaskedTextBox.Text);
             var user = BLL.EmpleadoBLL.Buscar(p => p.EmpleadoId == id);
 
             if (BLL.EmpleadoBLL.Eliminar(user))
@@ -148,52 +227,78 @@ namespace P2_ap2__Anthony_Santana_.Registros
             {
                 MessageBox.Show("No se pudo eliminar .");
             }
+            }
+
+          
         }
 
         private void buttonbuscar_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(empleadoIdMaskedTextBox.Text);
-        //    Entidades.Empleados empleado;
-            var empleado = BLL.EmpleadoBLL.Buscar(p => p.EmpleadoId == id);
-           // empleadoG = new Entidades.Empleados();
-            if (empleado != null)
+            if (string.IsNullOrWhiteSpace(empleadoIdMaskedTextBox.Text))
             {
-              
-                //Resultados busqueda empleado
-                nombreTextBox.Text = empleado.Nombre;
-                sueldoMaskedTextBox.Text = Convert.ToString(empleado.Sueldo);
-                fechaNacimientoDateTimePicker.Text = Convert.ToString(empleado.FechaNacimiento);
-
-                listado = BLL.RetencionesBLL.Lista(p => p.RetencionId == id);
-
-                //LLenar Data al buscar
-                //comboBoxRetenciones.SelectedValue = empleadoG.RetencionId;
-                dataGridView1.DataSource = null;
-                dataGridView1.DataSource = listado;
-               // LlenarData(empleadoG);
-
-                MessageBox.Show("Resultados");
+                MessageBox.Show("ID CAMPO VACIO");
+                Limpiar();
 
             }
             else
             {
-                MessageBox.Show("No Existe");
+                int id = int.Parse(empleadoIdMaskedTextBox.Text);
+
+                var empleado = BLL.EmpleadoBLL.Buscar(p => p.EmpleadoId == id);
+
+                if (empleado != null)
+                {
+
+                    //Resultados busqueda empleado
+                    nombreTextBox.Text = empleado.Nombre;
+                    sueldoMaskedTextBox.Text = Convert.ToString(empleado.Sueldo);
+                    fechaNacimientoDateTimePicker.Text = Convert.ToString(empleado.FechaNacimiento);
+
+                    listado = BLL.RetencionesBLL.Lista(p => p.RetencionId == id);
+                    lista1 = BLL.TiposEmailBLL.Lista(p => p.TipoId == id);
+
+                    dataGridView1.DataSource = null;
+                    dataGridView1.DataSource = listado;
+
+                    dataGridEmail.DataSource = null;
+                    dataGridEmail.DataSource = lista1;
+
+           //         LlenarDataEmail(empleadoG);
+
+                    MessageBox.Show("Resultados");
+
+                }
+                else
+                {
+                    MessageBox.Show("No Existe");
+                }
             }
+               
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        //Boton Agregar Tuve problemas al cambiar nombre
+         private void button1_Click(object sender, EventArgs e)
         {
 
           
             Entidades.Retenciones retencion = new Entidades.Retenciones();
             retencion= (Entidades.Retenciones)comboBoxRetenciones.SelectedItem;
             empleadoG.RetencionesList.Add(retencion);
-
             LlenarData(empleadoG);
-       //     ListRetenciones.Add(retencion);
-          
 
         
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AgregarEmailsDetalle_Click(object sender, EventArgs e)
+        {
+            empleadoG.AgregarDetalle(Email.TipoEmail, textBoxEmail.Text);
+
+            LlenarDataEmail(empleadoG);
         }
     }
 }

@@ -17,12 +17,7 @@ namespace Entidades
         {
         }
 
-        public EmpleadosRetenciones(int id, int empleadoId, int retencionId)
-        {
-            this.Id = id;
-            this.EmpleadoId = empleadoId;
-            this.RetencionId = retencionId;
-        }
+    
 
     }
 }

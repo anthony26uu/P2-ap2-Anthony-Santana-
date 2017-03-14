@@ -31,6 +31,24 @@ namespace BLL
 
         }
 
+        public static List<Entidades.TiposEmail> GetListodo()
+        {
+            List<Entidades.TiposEmail> lista = new List<Entidades.TiposEmail>();
+            using (var db = new DAL.Repositorio<TiposEmail>())
+            {
+                try
+                {
+                    return db.ListaTodo();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+
+            }
+        }
+
 
 
         public static bool Mofidicar(TiposEmail existente)
