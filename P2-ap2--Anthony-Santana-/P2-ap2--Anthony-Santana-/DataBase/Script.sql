@@ -8,7 +8,7 @@ Descripcion varchar (255));
 
 
 create table Empleados (EmpleadoId int identity(1,1) primary key ,
-Nombre varchar (255),  FechaNacimiento datetime, Sueldo float);
+Nombre varchar (255),  FechaNacimiento datetime, Sueldo float,     RetencionId   INT    );
 
 
 
