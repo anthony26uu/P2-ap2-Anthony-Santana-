@@ -47,5 +47,11 @@ namespace P2_ap2__Anthony_Santana_
             Registros.RegistroEmpleado db = new Registros.RegistroEmpleado();
             db.Show();
         }
+
+        private void empleadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Consultas.ConsultaEmpleados db = new Consultas.ConsultaEmpleados();
+            db.Show();
+        }
     }
 }

@@ -10,26 +10,33 @@ namespace BLL
 {
   public  class EmpleadoBLL
     {
-
-        public static bool Guardar(Entidades.Empleados nuevo)
+        public static bool Guardar(Entidades.Empleados empleado)
         {
-            bool retorno = false;
-            using (var db = new Repositorio<Entidades.Empleados>())
+            using (var conec = new ParcialDb())
             {
                 try
                 {
-                    retorno = db.Guardar(nuevo) != null;
+
+                    conec.EmpleadoDb.Add(empleado);
+
+                    foreach (var g in empleado.RetencionesList)
+                    {
+                        conec.Entry(g).State = System.Data.Entity.EntityState.Unchanged;
+                    }
+
+                    conec.SaveChanges();
+                    return true;
                 }
                 catch (Exception)
                 {
 
                     throw;
                 }
-
             }
-            return retorno;
 
+            return false;
         }
+
 
 
 

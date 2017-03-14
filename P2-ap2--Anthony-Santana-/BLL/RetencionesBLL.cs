@@ -13,25 +13,6 @@ namespace BLL
 
 
 
-        public static List<Entidades.Retenciones> GetListodo()
-        {
-            List<Entidades.Retenciones> lista = new List<Entidades.Retenciones>();
-            using (var db = new ParcialDb())
-            {
-                try
-                {
-                    lista = db.RetencionesDb.ToList();
-                }
-                catch (Exception)
-                {
-
-                    throw;
-                }
-                return lista;
-            }
-        }
-
-
         public static Retenciones Guardar(Retenciones nuevo)
         {
             Retenciones creado = null;
@@ -122,6 +103,49 @@ namespace BLL
             }
             return listado;
         }
+
+
+        public static List<Entidades.Retenciones> GetListodo()
+        {
+            List<Entidades.Retenciones> lista = new List<Entidades.Retenciones>();
+            using (var db = new DAL.Repositorio<Retenciones>())
+            {
+                try
+                {
+                    return db.ListaTodo();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+           
+            }
+        }
+
+        public static List<Entidades.Retenciones> Listar1(Expression<Func<Empleados, bool>> criterioBusqueda)
+        {
+            List<Retenciones> listado = new List<Retenciones>();
+            List<Empleados> relaciones = null;
+            using (var conexion = new ParcialDb())
+            {
+                try
+                {
+                    relaciones = conexion.EmpleadoDb.Where(criterioBusqueda).ToList();
+                    foreach (var item in relaciones)
+                    {
+                        listado.Add(RetencionesBLL.BuscarID(item.RetencionId));
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+           return listado;
+        }
+
         public static List<Retenciones> Lista(Expression<Func<Retenciones, bool>> busqueda)
         {
             List<Retenciones> Result = null;

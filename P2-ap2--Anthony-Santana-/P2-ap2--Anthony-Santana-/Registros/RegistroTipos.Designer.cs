@@ -72,7 +72,7 @@
             this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(61, 29);
-            this.button4.TabIndex = 60;
+            this.button4.TabIndex = 5;
             this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
@@ -88,7 +88,7 @@
             this.buttonEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.buttonEliminar.Name = "buttonEliminar";
             this.buttonEliminar.Size = new System.Drawing.Size(60, 52);
-            this.buttonEliminar.TabIndex = 59;
+            this.buttonEliminar.TabIndex = 3;
             this.buttonEliminar.Text = "Eliminar";
             this.buttonEliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonEliminar.UseVisualStyleBackColor = true;
@@ -105,7 +105,7 @@
             this.buttonGuardar.Margin = new System.Windows.Forms.Padding(2);
             this.buttonGuardar.Name = "buttonGuardar";
             this.buttonGuardar.Size = new System.Drawing.Size(66, 52);
-            this.buttonGuardar.TabIndex = 58;
+            this.buttonGuardar.TabIndex = 2;
             this.buttonGuardar.Text = "Guardar";
             this.buttonGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonGuardar.UseVisualStyleBackColor = true;
@@ -120,7 +120,7 @@
             this.buttonNuevo.Margin = new System.Windows.Forms.Padding(2);
             this.buttonNuevo.Name = "buttonNuevo";
             this.buttonNuevo.Size = new System.Drawing.Size(66, 51);
-            this.buttonNuevo.TabIndex = 57;
+            this.buttonNuevo.TabIndex = 1;
             this.buttonNuevo.Text = "Nuevo";
             this.buttonNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonNuevo.UseVisualStyleBackColor = true;
@@ -132,7 +132,7 @@
             this.tipoIdMaskedTextBox.Mask = "99999";
             this.tipoIdMaskedTextBox.Name = "tipoIdMaskedTextBox";
             this.tipoIdMaskedTextBox.Size = new System.Drawing.Size(87, 20);
-            this.tipoIdMaskedTextBox.TabIndex = 62;
+            this.tipoIdMaskedTextBox.TabIndex = 4;
             this.tipoIdMaskedTextBox.ValidatingType = typeof(int);
             // 
             // descripcionTextBox
@@ -141,7 +141,7 @@
             this.descripcionTextBox.Multiline = true;
             this.descripcionTextBox.Name = "descripcionTextBox";
             this.descripcionTextBox.Size = new System.Drawing.Size(153, 127);
-            this.descripcionTextBox.TabIndex = 64;
+            this.descripcionTextBox.TabIndex = 0;
             // 
             // errorProvider1
             // 

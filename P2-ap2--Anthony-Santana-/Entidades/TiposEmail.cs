@@ -12,9 +12,14 @@ namespace Entidades
         public int TipoId { get; set; }
         public string Descripcion { get; set; }
 
+        public virtual List<Empleados> EmpleadoLis { get; set; }
+        public virtual ICollection<EmpleadosEmails> LisRelacion { get; set; }
+
+     
         public TiposEmail()
         {
-
+            this.EmpleadoLis = new List<Entidades.Empleados>();
+            this.LisRelacion = new HashSet<EmpleadosEmails>();
         }
        
 
