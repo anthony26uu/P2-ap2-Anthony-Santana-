@@ -72,7 +72,7 @@ namespace BLL
                     relaciones = conexion.EmpleadosDecuentosDb.Where(criterioBusqueda).ToList();
                     foreach (var item in relaciones)
                     {
-                        listado.Add(RetencionesBLL.BuscarID(item.RetencionId));
+                        listado.Add(RetencionesBLL.BuscarID(item.EmpleadoId));
                     }
                 }
                 catch (Exception)

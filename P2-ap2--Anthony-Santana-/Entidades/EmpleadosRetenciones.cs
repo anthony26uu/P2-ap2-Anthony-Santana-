@@ -12,9 +12,16 @@ namespace Entidades
         public int Id   { get; set; }
         public int EmpleadoId { get; set; }
         public int RetencionId { get; set; }
-      
+
         public EmpleadosRetenciones()
         {
+        }
+
+        public EmpleadosRetenciones(int id, int empleadoId, int retencionId)
+        {
+            this.Id = id;
+            this.EmpleadoId = empleadoId;
+            this.RetencionId = retencionId;
         }
 
     }

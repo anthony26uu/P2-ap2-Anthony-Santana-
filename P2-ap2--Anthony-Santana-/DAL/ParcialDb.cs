@@ -31,7 +31,7 @@ namespace DAL
              {
                  mapa.MapLeftKey("EmpleadoId");
                  mapa.MapRightKey("RetencionId");
-                 mapa.ToTable("EstudianteMateria");
+                 mapa.ToTable("EmpleadosRetenciones");
              });
         }
 

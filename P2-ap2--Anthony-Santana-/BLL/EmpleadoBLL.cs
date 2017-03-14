@@ -1,4 +1,5 @@
 ﻿using DAL;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,6 +76,23 @@ namespace BLL
             return empleado;
         }
 
+        public static Entidades.Empleados Buscar1(int id)
+        {
+            Entidades.Empleados emple = null;
+            using (var conexion = new ParcialDb())
+            {
+                try
+                {
+                    emple = conexion.EmpleadoDb.Find(id);
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+            return emple;
+        }
 
         public static Entidades.Empleados Buscar(Expression<Func<Entidades.Empleados, bool>> retencion)
         {
@@ -87,6 +105,30 @@ namespace BLL
             return Result;
         }
 
+
+
+        public static List<Retenciones> Listar(Expression<Func<Empleados, bool>> criterioBusqueda)
+        {
+            List<Retenciones> listado = new List<Retenciones>();
+            List<Empleados> relaciones = null;
+            using (var conexion = new ParcialDb())
+            {
+                try
+                {
+                    relaciones = conexion.EmpleadoDb.Where(criterioBusqueda).ToList();
+                    foreach (var item in relaciones)
+                    {
+                        listado.Add(RetencionesBLL.BuscarID(item.RetencionId));
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+            return listado;
+        }
 
 
 

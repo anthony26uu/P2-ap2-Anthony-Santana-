@@ -12,10 +12,14 @@ namespace P2_ap2__Anthony_Santana_.Registros
     public partial class RegistroEmpleado : Form
     {
         Entidades.Empleados empleadoG;
-        List<Entidades.Empleados> lista;
+        List<Entidades.Retenciones> listado;
+
+
         public RegistroEmpleado()
         {
             InitializeComponent();
+         
+            Limpiar();
         }
 
         private bool Validar()
@@ -42,32 +46,27 @@ namespace P2_ap2__Anthony_Santana_.Registros
             nombreTextBox.Clear();
             sueldoMaskedTextBox.Clear();
             nombreTextBox.Focus();
-          
+            errorProvider1.Clear();
+            dataGridView1.DataSource = null;
+            comboBoxRetenciones.Text=null;
             empleadoG = new Entidades.Empleados();
         }
 
         private void LlenarCombo()
         {
-
             List<Entidades.Retenciones> lista = BLL.RetencionesBLL.GetListodo();
-
-
-            retencionIdComboBox.DataSource = lista;
-     
-
-
-       //     List<Entidades.Empleados> lista = BLL.EmpleadoBLL.Lista();
-         //   retencionIdComboBox.DataSource = lista;
-
-            retencionIdComboBox.DisplayMember = "Descripcion";
-            retencionIdComboBox.ValueMember = "RetencionId";
+            comboBoxRetenciones.DataSource = lista;
+            comboBoxRetenciones.DisplayMember = "Descripcion";
+            comboBoxRetenciones.ValueMember = "RetencionId";
+            //if (comboBoxRetenciones.Items.Count > 0)
+            //    comboBoxRetenciones.SelectedIndex = -1;
 
         }
 
         private void LlenarData(Entidades.Empleados n)
         {
             dataGridView1.DataSource = null;
-            dataGridView1.DataSource = n.RetencionId;
+            dataGridView1.DataSource = n.RetencionesList;
 
         }
 
@@ -107,6 +106,8 @@ namespace P2_ap2__Anthony_Santana_.Registros
                     if (id != empleado.EmpleadoId)
                     {
                         BLL.EmpleadoBLL.Mofidicar(empleado);
+                        
+                    
                         MessageBox.Show("Modificada");
                     }
                     else
@@ -152,14 +153,24 @@ namespace P2_ap2__Anthony_Santana_.Registros
         private void buttonbuscar_Click(object sender, EventArgs e)
         {
             int id = int.Parse(empleadoIdMaskedTextBox.Text);
-            Entidades.Empleados empleado;
-            empleado = BLL.EmpleadoBLL.Buscar(p => p.EmpleadoId == id);
+        //    Entidades.Empleados empleado;
+            var empleado = BLL.EmpleadoBLL.Buscar(p => p.EmpleadoId == id);
+           // empleadoG = new Entidades.Empleados();
             if (empleado != null)
             {
+              
+                //Resultados busqueda empleado
                 nombreTextBox.Text = empleado.Nombre;
                 sueldoMaskedTextBox.Text = Convert.ToString(empleado.Sueldo);
                 fechaNacimientoDateTimePicker.Text = Convert.ToString(empleado.FechaNacimiento);
 
+                listado = BLL.RetencionesBLL.Lista(p => p.RetencionId == id);
+
+                //LLenar Data al buscar
+                //comboBoxRetenciones.SelectedValue = empleadoG.RetencionId;
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = listado;
+               // LlenarData(empleadoG);
 
                 MessageBox.Show("Resultados");
 
@@ -172,11 +183,17 @@ namespace P2_ap2__Anthony_Santana_.Registros
 
         private void button1_Click(object sender, EventArgs e)
         {
-       
-            lista = (Entidades.Retenciones) Convert.;// Combo
-           
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = lista;
+
+          
+            Entidades.Retenciones retencion = new Entidades.Retenciones();
+            retencion= (Entidades.Retenciones)comboBoxRetenciones.SelectedItem;
+            empleadoG.RetencionesList.Add(retencion);
+
+            LlenarData(empleadoG);
+       //     ListRetenciones.Add(retencion);
+          
+
+        
         }
     }
 }

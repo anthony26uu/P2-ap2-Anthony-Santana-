@@ -100,15 +100,37 @@ namespace BLL
             return Result;
         }
 
+          public static List<Retenciones> Listar(Expression<Func<Empleados, bool>> criterioBusqueda)
+        {
+            List<Retenciones> listado = new List<Retenciones>();
+            List<Empleados> relaciones = null;
+            using (var conexion = new ParcialDb())
+            {
+                try
+                {
+                    relaciones = conexion.EmpleadoDb.Where(criterioBusqueda).ToList();
+                    foreach (var item in relaciones)
+                    {
+                        listado.Add(RetencionesBLL.BuscarID(item.RetencionId));
+                    }
+                }
+                catch (Exception)
+                {
 
+                    throw;
+                }
+            }
+            return listado;
+        }
         public static List<Retenciones> Lista(Expression<Func<Retenciones, bool>> busqueda)
         {
             List<Retenciones> Result = null;
             using (var db = new Repositorio<Retenciones>())
             {
                 try
-                {
+                {  
                     Result = db.Lista(busqueda).ToList(); //EntitySet.Where(busqueda).ToList();
+
                 }
                 catch
                 {

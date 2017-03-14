@@ -65,7 +65,7 @@ namespace P2_ap2__Anthony_Santana_.Registros
                 {
 
                     retenciones.Descripcion = descripcionTextBox.Text;
-
+                    retenciones.Valor = Utilidades.TOIN(valorTextBox.Text);
                     retenciones.RetencionId = Utilidades.TOIN(retencionIdMaskedTextBox.Text);
 
                     if (id != retenciones.RetencionId)

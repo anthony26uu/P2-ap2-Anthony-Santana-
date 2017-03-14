@@ -33,8 +33,9 @@
             System.Windows.Forms.Label nombreLabel;
             System.Windows.Forms.Label fechaNacimientoLabel;
             System.Windows.Forms.Label sueldoLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroEmpleado));
             System.Windows.Forms.Label retencionIdLabel;
+            System.Windows.Forms.Label label1;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroEmpleado));
             this.empleadoIdMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.nombreTextBox = new System.Windows.Forms.TextBox();
             this.fechaNacimientoDateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -45,17 +46,24 @@
             this.buttonNuevo = new System.Windows.Forms.Button();
             this.buttonbuscar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.AgregarRetenciones = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.retencionIdComboBox = new System.Windows.Forms.ComboBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.EmailtextBox = new System.Windows.Forms.TextBox();
+            this.AgregarEmial = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.comboBoxRetenciones = new System.Windows.Forms.ComboBox();
             empleadoIdLabel = new System.Windows.Forms.Label();
             nombreLabel = new System.Windows.Forms.Label();
             fechaNacimientoLabel = new System.Windows.Forms.Label();
             sueldoLabel = new System.Windows.Forms.Label();
             retencionIdLabel = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // empleadoIdLabel
@@ -67,15 +75,6 @@
             empleadoIdLabel.TabIndex = 1;
             empleadoIdLabel.Text = "Empleado Id:";
             // 
-            // empleadoIdMaskedTextBox
-            // 
-            this.empleadoIdMaskedTextBox.Location = new System.Drawing.Point(114, 18);
-            this.empleadoIdMaskedTextBox.Mask = "99999";
-            this.empleadoIdMaskedTextBox.Name = "empleadoIdMaskedTextBox";
-            this.empleadoIdMaskedTextBox.Size = new System.Drawing.Size(119, 20);
-            this.empleadoIdMaskedTextBox.TabIndex = 2;
-            this.empleadoIdMaskedTextBox.ValidatingType = typeof(int);
-            // 
             // nombreLabel
             // 
             nombreLabel.AutoSize = true;
@@ -84,13 +83,6 @@
             nombreLabel.Size = new System.Drawing.Size(47, 13);
             nombreLabel.TabIndex = 3;
             nombreLabel.Text = "Nombre:";
-            // 
-            // nombreTextBox
-            // 
-            this.nombreTextBox.Location = new System.Drawing.Point(114, 44);
-            this.nombreTextBox.Name = "nombreTextBox";
-            this.nombreTextBox.Size = new System.Drawing.Size(200, 20);
-            this.nombreTextBox.TabIndex = 4;
             // 
             // fechaNacimientoLabel
             // 
@@ -101,13 +93,6 @@
             fechaNacimientoLabel.TabIndex = 5;
             fechaNacimientoLabel.Text = "Fecha Nacimiento:";
             // 
-            // fechaNacimientoDateTimePicker
-            // 
-            this.fechaNacimientoDateTimePicker.Location = new System.Drawing.Point(114, 70);
-            this.fechaNacimientoDateTimePicker.Name = "fechaNacimientoDateTimePicker";
-            this.fechaNacimientoDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.fechaNacimientoDateTimePicker.TabIndex = 6;
-            // 
             // sueldoLabel
             // 
             sueldoLabel.AutoSize = true;
@@ -116,6 +101,47 @@
             sueldoLabel.Size = new System.Drawing.Size(43, 13);
             sueldoLabel.TabIndex = 7;
             sueldoLabel.Text = "Sueldo:";
+            // 
+            // retencionIdLabel
+            // 
+            retencionIdLabel.AutoSize = true;
+            retencionIdLabel.Location = new System.Drawing.Point(22, 35);
+            retencionIdLabel.Name = "retencionIdLabel";
+            retencionIdLabel.Size = new System.Drawing.Size(71, 13);
+            retencionIdLabel.TabIndex = 5;
+            retencionIdLabel.Text = "Retencion Id:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(30, 35);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(32, 13);
+            label1.TabIndex = 5;
+            label1.Text = "Email";
+            // 
+            // empleadoIdMaskedTextBox
+            // 
+            this.empleadoIdMaskedTextBox.Location = new System.Drawing.Point(114, 18);
+            this.empleadoIdMaskedTextBox.Mask = "99999";
+            this.empleadoIdMaskedTextBox.Name = "empleadoIdMaskedTextBox";
+            this.empleadoIdMaskedTextBox.Size = new System.Drawing.Size(119, 20);
+            this.empleadoIdMaskedTextBox.TabIndex = 2;
+            this.empleadoIdMaskedTextBox.ValidatingType = typeof(int);
+            // 
+            // nombreTextBox
+            // 
+            this.nombreTextBox.Location = new System.Drawing.Point(114, 44);
+            this.nombreTextBox.Name = "nombreTextBox";
+            this.nombreTextBox.Size = new System.Drawing.Size(200, 20);
+            this.nombreTextBox.TabIndex = 4;
+            // 
+            // fechaNacimientoDateTimePicker
+            // 
+            this.fechaNacimientoDateTimePicker.Location = new System.Drawing.Point(114, 70);
+            this.fechaNacimientoDateTimePicker.Name = "fechaNacimientoDateTimePicker";
+            this.fechaNacimientoDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.fechaNacimientoDateTimePicker.TabIndex = 6;
             // 
             // sueldoMaskedTextBox
             // 
@@ -196,62 +222,94 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.comboBoxRetenciones);
+            this.groupBox1.Controls.Add(this.AgregarRetenciones);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(retencionIdLabel);
-            this.groupBox1.Controls.Add(this.retencionIdComboBox);
             this.groupBox1.Location = new System.Drawing.Point(15, 140);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(594, 232);
+            this.groupBox1.Size = new System.Drawing.Size(475, 181);
             this.groupBox1.TabIndex = 66;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Retenciones";
             // 
-            // button1
+            // AgregarRetenciones
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(243, 22);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(56, 32);
-            this.button1.TabIndex = 63;
-            this.button1.Text = "Agregar";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.AgregarRetenciones.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.AgregarRetenciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AgregarRetenciones.Image = ((System.Drawing.Image)(resources.GetObject("AgregarRetenciones.Image")));
+            this.AgregarRetenciones.Location = new System.Drawing.Point(397, 22);
+            this.AgregarRetenciones.Margin = new System.Windows.Forms.Padding(2);
+            this.AgregarRetenciones.Name = "AgregarRetenciones";
+            this.AgregarRetenciones.Size = new System.Drawing.Size(56, 32);
+            this.AgregarRetenciones.TabIndex = 63;
+            this.AgregarRetenciones.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.AgregarRetenciones.UseVisualStyleBackColor = true;
+            this.AgregarRetenciones.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(25, 59);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(502, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(428, 116);
             this.dataGridView1.TabIndex = 7;
             // 
-            // retencionIdLabel
+            // groupBox2
             // 
-            retencionIdLabel.AutoSize = true;
-            retencionIdLabel.Location = new System.Drawing.Point(30, 35);
-            retencionIdLabel.Name = "retencionIdLabel";
-            retencionIdLabel.Size = new System.Drawing.Size(71, 13);
-            retencionIdLabel.TabIndex = 5;
-            retencionIdLabel.Text = "Retencion Id:";
+            this.groupBox2.Controls.Add(this.EmailtextBox);
+            this.groupBox2.Controls.Add(this.AgregarEmial);
+            this.groupBox2.Controls.Add(this.dataGridView2);
+            this.groupBox2.Controls.Add(label1);
+            this.groupBox2.Location = new System.Drawing.Point(548, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(312, 273);
+            this.groupBox2.TabIndex = 67;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "TIPO";
             // 
-            // retencionIdComboBox
+            // EmailtextBox
             // 
-            this.retencionIdComboBox.FormattingEnabled = true;
-            this.retencionIdComboBox.Location = new System.Drawing.Point(107, 32);
-            this.retencionIdComboBox.Name = "retencionIdComboBox";
-            this.retencionIdComboBox.Size = new System.Drawing.Size(121, 21);
-            this.retencionIdComboBox.TabIndex = 6;
+            this.EmailtextBox.Location = new System.Drawing.Point(83, 28);
+            this.EmailtextBox.Name = "EmailtextBox";
+            this.EmailtextBox.Size = new System.Drawing.Size(100, 20);
+            this.EmailtextBox.TabIndex = 65;
+            // 
+            // AgregarEmial
+            // 
+            this.AgregarEmial.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.AgregarEmial.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AgregarEmial.Image = ((System.Drawing.Image)(resources.GetObject("AgregarEmial.Image")));
+            this.AgregarEmial.Location = new System.Drawing.Point(233, 20);
+            this.AgregarEmial.Margin = new System.Windows.Forms.Padding(2);
+            this.AgregarEmial.Name = "AgregarEmial";
+            this.AgregarEmial.Size = new System.Drawing.Size(56, 32);
+            this.AgregarEmial.TabIndex = 63;
+            this.AgregarEmial.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.AgregarEmial.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(25, 59);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(315, 150);
+            this.dataGridView2.TabIndex = 7;
+            // 
+            // comboBoxRetenciones
+            // 
+            this.comboBoxRetenciones.FormattingEnabled = true;
+            this.comboBoxRetenciones.Location = new System.Drawing.Point(130, 27);
+            this.comboBoxRetenciones.Name = "comboBoxRetenciones";
+            this.comboBoxRetenciones.Size = new System.Drawing.Size(147, 21);
+            this.comboBoxRetenciones.TabIndex = 64;
             // 
             // RegistroEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(881, 441);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonbuscar);
             this.Controls.Add(this.buttonEliminar);
@@ -272,6 +330,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,8 +350,12 @@
         private System.Windows.Forms.Button buttonNuevo;
         private System.Windows.Forms.Button buttonbuscar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button AgregarRetenciones;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ComboBox retencionIdComboBox;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button AgregarEmial;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.TextBox EmailtextBox;
+        private System.Windows.Forms.ComboBox comboBoxRetenciones;
     }
 }

@@ -15,6 +15,13 @@ namespace Entidades
 
         public virtual List<Empleados> EmpleadoList { get; set; }
 
+
+        public Retenciones(string descripcion, int valor)
+        {
+            this.Descripcion = descripcion;
+            this.Valor = valor;
+        }
+
         public Retenciones()
         {
        
